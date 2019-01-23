@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hot deal</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="interior-head">
+            <header class="header padding-site">
+                <a class="logo" href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
+                <ul class="menu">
+                    <li class="menu-list"><a href="/" class="menu-link menu-link-active">HOME</a></li>
+                    <li class="menu-list"><a href="/products" class="menu-link">PRODUCTS</a></li>
+                    <li class="menu-list"><a href="#" class="menu-link">HISTORY</a></li>
+                    <li class="menu-list"><a href="#" class="menu-link">SHOWROOM</a></li>
+                    <li class="menu-list"><a href="/contact" class="menu-link">CONTACT</a></li>
+                    <li class="menu-list search"><img src="{% static 'img/search.svg' %}" alt="search"></li>
+                </ul>
+            </header>
+        </div>
+        <div class="product-details">
+            <ul class="product-details-menu">
+                <li class="menu-list"><a href="/" class="hero-menu-link details-menu-link-active">ALL</a></li>
+                <li class="menu-list"><a href="/products" class="hero-menu-link">HOME</a></li>
+                <li class="menu-list"><a href="#" class="hero-menu-link">OFFICE</a></li>
+                <li class="menu-list"><a href="#" class="hero-menu-link">FURNITURE</a></li>
+                <li class="menu-list"><a href="#" class="hero-menu-link">MODERN</a></li>
+                <li class="menu-list"><a href="#" class="hero-menu-link">CLASSIC</a></li>
+            </ul>
+            <div class="product-details-slider padding-site">
+                <div class="product-details-slider-img">
+                    <a href="" class="product-details-slider-img-big' %}"><img src="{% static 'img/product-slider.jpg' %}" alt=""></a>
+                    <div class="product-deteils-slider-img-small-list">
+                        <a href="" class="product-details-slider-img-small"><img src="{% static 'img/controll.jpg' %}" alt=""></a>
+                        <a href="" class="product-details-slider-img-small"><img src="{% static 'img/controll11.jpg' %}" alt=""></a>
+                        <a href="" class="product-details-slider-img-small"><img src="{% static 'img/controll2.jpg' %}" alt=""></a>
+                    </div>
+                </div>
+                <div class="product-details-text">
+                    <h2 class="fishnet-promo">Fishnet Chair</h2>
+                    <h4 class="hot deal">hot deal</h4>
+                    <h2 class="product-details-text-price">
+                        <span class="letter-price">$</span>&nbsp;36.7<span class="letter-price">/sq</span>
+                    </h2>
+                    <a class="details-button" href="#">Order Us<img src="{% static 'img/arrow-white.svg' %}" alt="arrow" class="arrow"></a>
+                    <p class="product-details-text-txt">The majesty of&nbsp;Mountains&nbsp;&mdash; Ugmonk style. <br><br>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do&nbsp;eiusmod tempor
+                        incididunt ut&nbsp;labore <br><br>
+                        et&nbsp;dolore magna aliqua. Ut&nbsp;enim ad&nbsp;minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut&nbsp;aliquip ex&nbsp;ea&nbsp;commodo consequat.<br><br>
+                        Duis aute irure dolor in&nbsp;reprehenderit in&nbsp;voluptate velit esse cillum dolore eu&nbsp;fugiat
+                        nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="related-product-text padding-site">
+            <div class="trending-title">Related Products</div>
+            <div class="explore"><a href="#" class="explore-all">explore all<img src="{% static 'img/arrow.svg' %}" alt="arrow" class="arrow"></a>
+            </div>
+        </div>
+        <div class="hero-product padding-site">
+
+            <div class="hero-product-list">
+                <ul class="hero-product-set-1">
+                    <li class="trending-product-link"><a href="#"><img src="{% static 'img/product-11.jpg' %}" alt="" class="trending-image"></a></li>
+                    <li class="trending-product-link"><a href="#"><img src="{% static 'img/product-21.jpg' %}" alt="" class="trending-image"></a></li>
+                    <li class="trending-product-link"><a href="#"><img src="{% static 'img/product-31.jpg' %}" alt="" class="trending-image"></a></li>
+                </ul>
+            </div>
+        </div>
+        <footer class="footer padding-site">
+            <div class="footer-center">
+                <div class="footer-center-contact-us">
+                    <div class="footer-up-text">contact&nbsp;us</div>
+                    <div class="footer-center-contact">
+                        <p class="footer-center-contact-text">132A Bridge Road Richmond VIC&nbsp;Australia.</p>
+                        <p class="footer-center-contact-text">Talk to&nbsp;us on&nbsp;1300&nbsp;132 info@interior.com</p>
+                    </div>
+                </div>
+                <div class="footer-center-information">
+                    <div class="footer-up-text">Useful Information</div>
+                    <div class="footer-useful-info">
+                        <ul class="useful-info">
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Sales terms</a></li>
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Customer care</a></li>
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Delivery</a></li>
+                        </ul>
+                        <ul class="useful-info">
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Architect accounts</a></li>
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Careers</a></li>
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Exchanges &amp;&nbsp;returns</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-center-touch">
+                    <div class="footer-up-text">Let&rsquo;s Stay in&nbsp;Touch!</div>
+                    <p class="footer-center-contact-text">Suscribe to&nbsp;know about our latest news, products and special
+                        offers just for suscribers.</p>
+                    <form action="#" class="email-plane">
+                        <input type="email" placeholder="your email address" class="insertEmail">
+                        <button type="submit" class="button-plane"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-basement">
+                <div class="basement-info">&copy;&nbsp;Copyright&nbsp;&mdash; INTERIOR 2016. All Rights Reserved.</div>
+                <div class="basement-social">
+                    <a class="icon-link" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="icon-link" href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a class="icon-link" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="icon-link" href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="basement-info">Terms &amp;&nbsp;Conditions&nbsp;/ Privacy policy &amp;&nbsp;Cookies</div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
