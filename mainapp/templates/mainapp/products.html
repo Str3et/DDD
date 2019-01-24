@@ -1,152 +1,89 @@
-<!DOCTYPE html>
+{% extends 'mainapp/Base.html' %}
 {% load staticfiles %}
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Products</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-    <div class="container">
-        <div class="hero padding-site">
-            <header class="header">
-                <a class="logo" href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
-                <ul class="menu">
-                    <li class="menu-list"><a href="/" class="menu-link">HOME</a></li>
-                    <li class="menu-list"><a href="/products" class="menu-link menu-link-active">PRODUCTS</a></li>
-                    <li class="menu-list"><a href="#" class="menu-link">HISTORY</a></li>
-                    <li class="menu-list"><a href="#" class="menu-link">SHOWROOM</a></li>
-                    <li class="menu-list"><a href="/contact" class="menu-link">CONTACT</a></li>
-                    <li class="menu-list search"><img src="{% static 'img/search.svg' %}" alt="search"></li>
-                </ul>
-            </header>
-            <p class="hero-text">Our Products Range</p>
-        </div>
-        <div class="hero-product padding-site">
-            <ul class="hero-menu">
-                <li class="menu-list"><a href="#" class="hero-menu-link hero-menu-link-active">ALL</a></li>
-                <li class="menu-list"><a href="#" class="hero-menu-link">HOME</a></li>
-                <li class="menu-list"><a href="#" class="hero-menu-link">OFFICE</a></li>
-                <li class="menu-list"><a href="#" class="hero-menu-link">FURNITURE</a></li>
-                <li class="menu-list"><a href="#" class="hero-menu-link">MODERN</a></li>
-                <li class="menu-list"><a href="#" class="hero-menu-link">CLASSIC</a></li>
-            </ul>
-            <div class="hero-product-list">
-                <ul class="hero-product-set-1">
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-11.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-21.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-31.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-41.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-51.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-61.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="hero-product-list">
-                <ul class="hero-product-set-2">
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-11.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-21.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-31.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-41.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-51.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                    <li class="trending-product-link"><a href="/interior">
-                            <img src="{% static 'img/product-61.jpg' %}" alt="" class="trending-image"></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="hero-refresh"><a href="#"><i class="fas fa-sync-alt"></i></a></div>
-        </div>
-        <div class="promo-product">
-            <div class="promo-content-1 padding-promo">
-                <div class="promo-product-text">
-                    <h4 class="exclusive">exclusive</h4>
-                    <h2 class="fishnet-promo">Fishnet Chair</h2>
-                    <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
-                        available in&nbsp;matt</p>
-                    <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow" class="arrow"></a>
-                </div>
-            </div>
-            <div class="promo-content-2 padding-promo">
-                <div class="promo-product-text">
-                    <h4 class="exclusive">exclusive</h4>
-                    <h2 class="fishnet-promo">Fishnet Chair</h2>
-                    <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
-                        available in&nbsp;matt</p>
-                    <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow" class="arrow"></a>
-                </div>
-            </div>
-        </div>
-        <footer class="footer padding-site">
-            <div class="footer-center">
-                <div class="footer-center-contact-us">
-                    <div class="footer-up-text">contact&nbsp;us</div>
-                    <div class="footer-center-contact">
-                        <p class="footer-center-contact-text">132A Bridge Road Richmond VIC&nbsp;Australia.</p>
-                        <p class="footer-center-contact-text">Talk to&nbsp;us on&nbsp;1300&nbsp;132 info@interior.com</p>
-                    </div>
-                </div>
-                <div class="footer-center-information">
-                    <div class="footer-up-text">Useful Information</div>
-                    <div class="footer-useful-info">
-                        <ul class="useful-info">
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Sales terms</a></li>
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Customer care</a></li>
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Delivery</a></li>
-                        </ul>
-                        <ul class="useful-info">
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Architect accounts</a></li>
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Careers</a></li>
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Exchanges &amp;&nbsp;returns</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-center-touch">
-                    <div class="footer-up-text">Let&rsquo;s Stay in&nbsp;Touch!</div>
-                    <p class="footer-center-contact-text">Suscribe to&nbsp;know about our latest news, products and special
-                        offers just for suscribers.</p>
-                    <form action="#" class="email-plane">
-                        <input type="email" placeholder="your email address" class="insertEmail">
-                        <button type="submit" class="button-plane"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-basement">
-                <div class="basement-info">&copy;&nbsp;Copyright&nbsp;&mdash; INTERIOR 2016. All Rights Reserved.</div>
-                <div class="basement-social">
-                    <a class="icon-link" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="icon-link" href="#"><i class="fab fa-pinterest-p"></i></a>
-                    <a class="icon-link" href="#"><i class="fab fa-instagram"></i></a>
-                    <a class="icon-link" href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="basement-info">Terms &amp;&nbsp;Conditions&nbsp;/ Privacy policy &amp;&nbsp;Cookies</div>
-            </div>
-        </footer>
+{% block top %}
+    <div class="hero padding-site">
+        {% include 'mainapp/includes/header.html' %}
+        <p class="hero-text">Our Products Range</p>
     </div>
-</body>
+{% endblock %}
 
-</html>
+{% block content %}
+    <div class="hero-product padding-site">
+        <ul class="hero-menu">
+            <li class="menu-list"><a href="#" class="hero-menu-link hero-menu-link-active">ALL</a></li>
+            <li class="menu-list"><a href="#" class="hero-menu-link">HOME</a></li>
+            <li class="menu-list"><a href="#" class="hero-menu-link">OFFICE</a></li>
+            <li class="menu-list"><a href="#" class="hero-menu-link">FURNITURE</a></li>
+            <li class="menu-list"><a href="#" class="hero-menu-link">MODERN</a></li>
+            <li class="menu-list"><a href="#" class="hero-menu-link">CLASSIC</a></li>
+        </ul>
+        <div class="hero-product-list">
+            <ul class="hero-product-set-1">
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-11.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-21.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-31.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-41.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-51.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-61.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="hero-product-list">
+            <ul class="hero-product-set-2">
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-11.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-21.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-31.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-41.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-51.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+                <li class="trending-product-link"><a href="/interior">
+                    <img src="{% static 'img/product-61.jpg' %}" alt="" class="trending-image"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="hero-refresh"><a href="#"><i class="fas fa-sync-alt"></i></a></div>
+    </div>
+    <div class="promo-product">
+        <div class="promo-content-1 padding-promo">
+            <div class="promo-product-text">
+                <h4 class="exclusive">exclusive</h4>
+                <h2 class="fishnet-promo">Fishnet Chair</h2>
+                <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
+                    available in&nbsp;matt</p>
+                <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
+                                                                class="arrow"></a>
+            </div>
+        </div>
+        <div class="promo-content-2 padding-promo">
+            <div class="promo-product-text">
+                <h4 class="exclusive">exclusive</h4>
+                <h2 class="fishnet-promo">Fishnet Chair</h2>
+                <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
+                    available in&nbsp;matt</p>
+                <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
+                                                                class="arrow"></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

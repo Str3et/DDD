@@ -1,129 +1,64 @@
-<!DOCTYPE html>
+{% extends 'mainapp/Base.html' %}
 {% load staticfiles %}
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Contacts</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-    <div class="container">
-        <div class="hero padding-site">
-            <header class="header">
-                <a class="logo" href="/"><img src="{% static 'img/logo.svg' %}" alt="logo"></a>
-                <ul class="menu">
-                    <li class="menu-list"><a href="/" class="menu-link">HOME</a></li>
-                    <li class="menu-list"><a href="/products" class="menu-link">PRODUCTS</a></li>
-                    <li class="menu-list"><a href="#" class="menu-link">HISTORY</a></li>
-                    <li class="menu-list"><a href="#" class="menu-link">SHOWROOM</a></li>
-                    <li class="menu-list"><a href="/contact" class="menu-link menu-link-active">CONTACT</a></li>
-                    <li class="menu-list search"><img src="{% static 'img/search.svg' %}" alt="search"></li>
-                </ul>
-            </header>
-            <p class="hero-text">Contact Us</p>
-        </div>
-        <div class="location padding-site">
-            <ul class="location-list">
-                <li class="location-list-link">
-                    <a href="#" class="link-map"><i class="fas fa-map-marker-alt"></i></a>
-                    <h3 class="location-list-name">california</h3>
-                    <ul class="location-list-adress">
-                        <li class="location-list-adress-text">
-                            Phone:<br>
-                            <span class="location-list-adress-bold">1900&nbsp;&mdash; 1234 &minus;5678</span> <br><br>
-                        </li>
-                        <li class="location-list-adress-text">Email:<br>
-                            <span class="location-list-adress-bold">info@interior.com</span> <br><br>
-                        </li>
-                        <li class="location-list-adress-text">Address:<br>
-                            <span class="location-list-adress-min">12&nbsp;W 1st St, 90001 Los Angeles, California</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="location-list-link">
-                    <a href="#" class="link-map"><i class="fas fa-map-marker-alt"></i></a>
-                    <h3 class="location-list-name">california</h3>
-                    <ul class="location-list-adress">
-                        <li class="location-list-adress-text">
-                            Phone:<br>
-                            <span class="location-list-adress-bold">1900&nbsp;&mdash; 1234 &minus;5678</span> <br><br>
-                        </li>
-                        <li class="location-list-adress-text">Email:<br>
-                            <span class="location-list-adress-bold">info@interior.com</span> <br><br>
-                        </li>
-                        <li class="location-list-adress-text">Address:<br>
-                            <span class="location-list-adress-min">12&nbsp;W 1st St, 90001 Los Angeles, California</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="location-list-link">
-                    <a href="#" class="link-map"><i class="fas fa-map-marker-alt"></i></a>
-                    <h3 class="location-list-name">california</h3>
-                    <ul class="location-list-adress">
-                        <li class="location-list-adress-text">
-                            Phone:<br>
-                            <span class="location-list-adress-bold">1900&nbsp;&mdash; 1234 &minus;5678</span> <br><br>
-                        </li>
-                        <li class="location-list-adress-text">Email:<br>
-                            <span class="location-list-adress-bold">info@interior.com</span> <br><br>
-                        </li>
-                        <li class="location-list-adress-text">Address:<br>
-                            <span class="location-list-adress-min">12&nbsp;W 1st St, 90001 Los Angeles, California</span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <footer class="footer padding-site">
-            <div class="footer-center">
-                <div class="footer-center-contact-us">
-                    <div class="footer-up-text">contact&nbsp;us</div>
-                    <div class="footer-center-contact">
-                        <p class="footer-center-contact-text">132A Bridge Road Richmond VIC&nbsp;Australia.</p>
-                        <p class="footer-center-contact-text">Talk to&nbsp;us on&nbsp;1300&nbsp;132 info@interior.com</p>
-                    </div>
-                </div>
-                <div class="footer-center-information">
-                    <div class="footer-up-text">Useful Information</div>
-                    <div class="footer-useful-info">
-                        <ul class="useful-info">
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Sales terms</a></li>
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Customer care</a></li>
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Delivery</a></li>
-                        </ul>
-                        <ul class="useful-info">
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Architect accounts</a></li>
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Careers</a></li>
-                            <li class="useful-info-list"><a href="#" class="useful-info-link">Exchanges &amp;&nbsp;returns</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-center-touch">
-                    <div class="footer-up-text">Let&rsquo;s Stay in&nbsp;Touch!</div>
-                    <p class="footer-center-contact-text">Suscribe to&nbsp;know about our latest news, products and special
-                        offers just for suscribers.</p>
-                    <form action="#" class="email-plane">
-                        <input type="email" placeholder="your email address" class="insertEmail">
-                        <button type="submit" class="button-plane"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-            <div class="footer-basement">
-                <div class="basement-info">&copy;&nbsp;Copyright&nbsp;&mdash; INTERIOR 2016. All Rights Reserved.</div>
-                <div class="basement-social">
-                    <a class="icon-link" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="icon-link" href="#"><i class="fab fa-pinterest-p"></i></a>
-                    <a class="icon-link" href="#"><i class="fab fa-instagram"></i></a>
-                    <a class="icon-link" href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <div class="basement-info">Terms &amp;&nbsp;Conditions&nbsp;/ Privacy policy &amp;&nbsp;Cookies</div>
-            </div>
-        </footer>
+{% block top %}
+    <div class="hero padding-site">
+        {% include 'mainapp/includes/header.html' %}
+        <p class="hero-text">Contact Us</p>
     </div>
-</body>
+{% endblock %}
 
-</html>
+{% block content %}
+    <div class="location padding-site">
+        <ul class="location-list">
+            <li class="location-list-link">
+                <a href="#" class="link-map"><i class="fas fa-map-marker-alt"></i></a>
+                <h3 class="location-list-name">california</h3>
+                <ul class="location-list-adress">
+                    <li class="location-list-adress-text">
+                        Phone:<br>
+                        <span class="location-list-adress-bold">1900&nbsp;&mdash; 1234 &minus;5678</span> <br><br>
+                    </li>
+                    <li class="location-list-adress-text">Email:<br>
+                        <span class="location-list-adress-bold">info@interior.com</span> <br><br>
+                    </li>
+                    <li class="location-list-adress-text">Address:<br>
+                        <span class="location-list-adress-min">12&nbsp;W 1st St, 90001 Los Angeles, California</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="location-list-link">
+                <a href="#" class="link-map"><i class="fas fa-map-marker-alt"></i></a>
+                <h3 class="location-list-name">california</h3>
+                <ul class="location-list-adress">
+                    <li class="location-list-adress-text">
+                        Phone:<br>
+                        <span class="location-list-adress-bold">1900&nbsp;&mdash; 1234 &minus;5678</span> <br><br>
+                    </li>
+                    <li class="location-list-adress-text">Email:<br>
+                        <span class="location-list-adress-bold">info@interior.com</span> <br><br>
+                    </li>
+                    <li class="location-list-adress-text">Address:<br>
+                        <span class="location-list-adress-min">12&nbsp;W 1st St, 90001 Los Angeles, California</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="location-list-link">
+                <a href="#" class="link-map"><i class="fas fa-map-marker-alt"></i></a>
+                <h3 class="location-list-name">california</h3>
+                <ul class="location-list-adress">
+                    <li class="location-list-adress-text">
+                        Phone:<br>
+                        <span class="location-list-adress-bold">1900&nbsp;&mdash; 1234 &minus;5678</span> <br><br>
+                    </li>
+                    <li class="location-list-adress-text">Email:<br>
+                        <span class="location-list-adress-bold">info@interior.com</span> <br><br>
+                    </li>
+                    <li class="location-list-adress-text">Address:<br>
+                        <span class="location-list-adress-min">12&nbsp;W 1st St, 90001 Los Angeles, California</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
