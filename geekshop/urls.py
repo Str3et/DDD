@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 import mainapp.views as controller
 
-urlpatterns = {
+urlpatterns = [
     path('admin/', admin.site.urls),
     path('', controller.index, name='home'),
     path('contact/', controller.contact, name='contact'),
     path('interior/', controller.interior, name='interior'),
-    path('products/', controller.products, name='products'),
-}
+    path('products/', controller.products, name='catalog'),
+    path('test/', controller.test, name='test')
+]

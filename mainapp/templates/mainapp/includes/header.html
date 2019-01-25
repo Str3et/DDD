@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<header class="header">
+    <a class="logo" href="/"><img src="{% static '/img/logo.svg' %}" alt="logo"></a>
+    <ul class="menu">
+        <li class="menu-list"><a href="{% url 'home' %}" class="menu-link {% if request.path == '/' %}
+        menu-link-active {% endif %}">HOME</a></li>
+        <li class="menu-list"><a href="{% url 'catalog' %}" class="menu-link {% if request.path == '/products/' %}
+        menu-link-active {% endif %}">PRODUCTS</a></li>
+        <li class="menu-list"><a href="{% url 'contact' %}" class="menu-link {% if request.path == '/contact/' %}
+        menu-link-active {% endif %}">CONTACT</a></li>
+        {#        <li class="menu-list"><a href="{% url 'test' %}" class="menu-link">TACT</a></li>#}
+        <li class="menu-list search"><img src="{% static 'img/search.svg' %}" alt="search"></li>
+    </ul>
+</header>
