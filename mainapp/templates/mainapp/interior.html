@@ -19,8 +19,7 @@
         </ul>
         <div class="product-details-slider padding-site">
             <div class="product-details-slider-img">
-                <a href="" class="product-details-slider-img-big' %}"><img src="{% static 'img/product-slider.jpg' %}"
-                                                                           alt=""></a>
+                <a href="" class="product-details-slider-img-big' %}"><img src="/media/{{ products.image }}" alt=""></a>
                 <div class="product-deteils-slider-img-small-list">
                     <a href="" class="product-details-slider-img-small"><img src="{% static 'img/controll.jpg' %}"
                                                                              alt=""></a>
@@ -31,20 +30,16 @@
                 </div>
             </div>
             <div class="product-details-text">
-                <h2 class="fishnet-promo">Fishnet Chair</h2>
+                <h2 class="fishnet-promo">{{ products.name }}</h2>
                 <h4 class="hot deal">hot deal</h4>
                 <h2 class="product-details-text-price">
-                    <span class="letter-price">$</span>&nbsp;36.7<span class="letter-price">/sq</span>
+                    <span class="letter-price">$</span>&nbsp;{{ products.price }}<span class="letter-price">/sq</span>
                 </h2>
                 <a class="details-button" href="#">Order Us<img src="{% static 'img/arrow-white.svg' %}" alt="arrow"
                                                                 class="arrow"></a>
-                <p class="product-details-text-txt">The majesty of&nbsp;Mountains&nbsp;&mdash; Ugmonk style. <br><br>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do&nbsp;eiusmod tempor
-                    incididunt ut&nbsp;labore <br><br>
+                <p class="product-details-text-txt">{{ products.description }} <br><br>
                     et&nbsp;dolore magna aliqua. Ut&nbsp;enim ad&nbsp;minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut&nbsp;aliquip ex&nbsp;ea&nbsp;commodo consequat.<br><br>
-                    Duis aute irure dolor in&nbsp;reprehenderit in&nbsp;voluptate velit esse cillum dolore eu&nbsp;fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                    laboris nisi ut&nbsp;aliquip ex&nbsp;ea&nbsp;commodo consequat.<br>
                 </p>
             </div>
         </div>

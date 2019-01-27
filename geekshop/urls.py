@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+from django.conf.urls import include
 import mainapp.views as controller
 
 urlpatterns = [
@@ -22,6 +25,9 @@ urlpatterns = [
     path('', controller.index, name='home'),
     path('contact/', controller.contact, name='contact'),
     path('interior/', controller.interior, name='interior'),
-    path('products/', controller.products, name='catalog'),
-    path('test/', controller.test, name='test')
+    path('products/', include('mainapp.urls', namespace='products')),  #  {% url 'products:index'%}
+    path('test/', controller.test, name='test'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
