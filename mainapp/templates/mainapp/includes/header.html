@@ -4,7 +4,7 @@
     <ul class="menu">
         <li class="menu-list"><a href="{% url 'home' %}" class="menu-link {% if request.path == '/' %}
         menu-link-active {% endif %}">HOME</a></li>
-        <li class="menu-list"><a href="{% url 'catalog' %}" class="menu-link {% if request.path == '/products/' %}
+        <li class="menu-list"><a href="{% url 'products:index' %}" class="menu-link {% if request.path == '/products/' %}
         menu-link-active {% endif %}">PRODUCTS</a></li>
         <li class="menu-list"><a href="{% url 'contact' %}" class="menu-link {% if request.path == '/contact/' %}
         menu-link-active {% endif %}">CONTACT</a></li>

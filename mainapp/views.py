@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpRequest
+from .models import ProductCategory, Product
 
 # Create your views here.
 
@@ -21,11 +22,13 @@ def contact(request: HttpRequest):
 def interior(request: HttpRequest):
     context = {
         'page_title': 'Лучшее предложение',
+        'products': Product.objects.get(id=2),
     }
     return render(request, 'mainapp/interior.html', context=context)
 
 
-def products(request: HttpRequest):
+def products(request: HttpRequest, pk=None):
+    print(pk)
     context = {
         'page_title': 'Каталог товаров',
     }
