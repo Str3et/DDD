@@ -10,12 +10,10 @@
 {% block content %}
     <div class="product-details">
         <ul class="product-details-menu">
-            <li class="menu-list"><a href="/" class="hero-menu-link details-menu-link-active">ALL</a></li>
-            <li class="menu-list"><a href="/products" class="hero-menu-link">HOME</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">OFFICE</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">FURNITURE</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">MODERN</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">CLASSIC</a></li>
+            <li class="menu-list"><a href="/" class="hero-menu-link details-menu-link-active">{{ prod_menu_1.name }}</a></li>
+            <li class="menu-list"><a href="#" class="hero-menu-link">{{ prod_menu_3.name }}</a></li>
+            <li class="menu-list"><a href="#" class="hero-menu-link">{{ prod_menu_4.name }}</a></li>
+            <li class="menu-list"><a href="#" class="hero-menu-link">{{ prod_menu_5.name }}</a></li>
         </ul>
         <div class="product-details-slider padding-site">
             <div class="product-details-slider-img">
