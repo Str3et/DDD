@@ -11,7 +11,7 @@ a {
     text-decoration: none;
 }
 
-.container {
+.my-container {
     max-width: 1366px;
     margin: 0 auto;
     background-image: url(/static/img/container-back.jpg);
@@ -54,7 +54,7 @@ a {
     flex-direction: column;
     position: relative;
     height: 800px;
-    max-width: 1170px;
+    max-width: 1366px;
     background-image: url(/static/img/slider-img.jpg);
 }
 
@@ -397,7 +397,7 @@ a {
     flex-direction: column;
     position: relative;
     height: 800px;
-    max-width: 1170px;
+    max-width: 1366px;
     background-image: url(/static/img/hot-back.jpg);
 }
 
@@ -642,7 +642,7 @@ a {
     flex-direction: column;
     position: relative;
     min-height: 360px;
-    max-width: 1170px;
+    max-width: 1366px;
     background-image: url(/static/img/hero-back.jpg);
 }
 
