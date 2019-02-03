@@ -27,6 +27,8 @@ urlpatterns = [
     path('interior/', controller.interior, name='interior'),
     path('products/', include('mainapp.urls', namespace='products')),  #  {% url 'products:index'%}
     path('test/', controller.test, name='test'),
+
+    path('auth/', include('authapp.urls', namespace='auth')),
 ]
 
 if settings.DEBUG:

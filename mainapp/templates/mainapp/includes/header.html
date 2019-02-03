@@ -6,6 +6,17 @@
         menu-link-active {% endif %}">HOME</a></li>
         <li class="menu-list"><a href="{% url 'products:index' %}" class="menu-link {% if request.path == '/products/' %}
         menu-link-active {% endif %}">PRODUCTS</a></li>
+
+        {% if user.is_authenticated %}
+            <li class="menu-list"><a href="{% url 'auth:logout' %}" class="menu-link"><i class="fas fa-sign-out-alt"></i></a></li>
+            <li class="menu-list"><a href="{% url 'auth:edit' %}" class="menu-link">EDIT ({{ user.username }})</a></li>
+        {% else %}
+            <li class="menu-list"><a href="{% url 'auth:login' %}" class="menu-link">LOGIN</a></li>
+            <li class="menu-list"><a href="{% url 'auth:register' %}" class="menu-link">REGISTRATION</a></li>
+        {% endif %}
+
+
+
         <li class="menu-list"><a href="{% url 'contact' %}" class="menu-link {% if request.path == '/contact/' %}
         menu-link-active {% endif %}">CONTACT</a></li>
         {#        <li class="menu-list"><a href="{% url 'test' %}" class="menu-link">TACT</a></li>#}

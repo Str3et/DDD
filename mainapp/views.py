@@ -22,7 +22,12 @@ def contact(request: HttpRequest):
 def interior(request: HttpRequest):
     context = {
         'page_title': 'Лучшее предложение',
-        'products': Product.objects.get(id=2),
+        'products': Product.objects.get(id=1),
+        'prod_menu_1': ProductCategory.objects.get(id=1),
+        'prod_menu_2': ProductCategory.objects.get(id=2),
+        'prod_menu_3': ProductCategory.objects.get(id=3),
+        'prod_menu_4': ProductCategory.objects.get(id=4),
+        'prod_menu_5': ProductCategory.objects.get(id=5),
     }
     return render(request, 'mainapp/interior.html', context=context)
 
