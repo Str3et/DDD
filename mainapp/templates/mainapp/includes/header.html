@@ -4,8 +4,12 @@
     <ul class="menu">
         <li class="menu-list"><a href="{% url 'home' %}" class="menu-link {% if request.path == '/' %}
         menu-link-active {% endif %}">HOME</a></li>
-        <li class="menu-list"><a href="{% url 'products:index' %}" class="menu-link {% if request.path == '/products/' %}
-        menu-link-active {% endif %}">PRODUCTS</a></li>
+        <li class="menu-list">
+            <a href="{% url 'products:index' %}" class="menu-link
+{#                {% if request.path == '/products/' or request.path == '/products/1/' or request.path == '/products/2/'%}#}
+{#                menu-link-active {% endif %}#}
+                {% if request.resolver_match.namespace == 'products' %} menu-link-active {% endif %}">PRODUCTS</a>
+        </li>
 
         {% if user.is_authenticated %}
             <li class="menu-list"><a href="{% url 'auth:logout' %}" class="menu-link"><i class="fas fa-sign-out-alt"></i></a></li>
@@ -15,11 +19,12 @@
             <li class="menu-list"><a href="{% url 'auth:register' %}" class="menu-link">REGISTRATION</a></li>
         {% endif %}
 
-
-
         <li class="menu-list"><a href="{% url 'contact' %}" class="menu-link {% if request.path == '/contact/' %}
         menu-link-active {% endif %}">CONTACT</a></li>
-        {#        <li class="menu-list"><a href="{% url 'test' %}" class="menu-link">TACT</a></li>#}
-        <li class="menu-list search"><img src="{% static 'img/search.svg' %}" alt="search"></li>
+        <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-search"></i></a></li>
+        {% if user.is_authenticated %}
+            <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-shopping-bag"></i>{{ basket | length }}</a></li>
+            <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-shopping-bag"></i>{{ basket.quantity }}</a></li>
+        {% endif %}
     </ul>
 </header>

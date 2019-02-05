@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<ul class="product-details-menu">
+    <li class="menu-list">
+        <a href="{% url 'products:index' %}"
+           class="hero-menu-link {% if request.path == '/products/' %} details-menu-link-active {% endif %}">ВСЕ</a>
+    </li>
+        {% for link in links_menu %}
+            <li class="menu-list">
+              <a href="{% url 'products:category' link.id %}"
+                 class="hero-menu-link {% if request.resolver_match.kwargs.id|add:'0' == link.id %} details-menu-link-active {% endif %}">
+                {{ link.name }}
+              </a>
+            </li>
+          {% endfor %}
+</ul>

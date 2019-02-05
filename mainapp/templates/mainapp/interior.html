@@ -9,15 +9,10 @@
 
 {% block content %}
     <div class="product-details">
-        <ul class="product-details-menu">
-            <li class="menu-list"><a href="/" class="hero-menu-link details-menu-link-active">{{ prod_menu_1.name }}</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">{{ prod_menu_3.name }}</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">{{ prod_menu_4.name }}</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">{{ prod_menu_5.name }}</a></li>
-        </ul>
+        {% include 'mainapp/includes/prod_menu.html' %}
         <div class="product-details-slider padding-site">
             <div class="product-details-slider-img">
-                <a href="" class="product-details-slider-img-big' %}"><img src="/media/{{ products.image }}" alt=""></a>
+                <a href="" class="product-details-slider-img-big"><img src="/media/{{ products.image }}" alt=""></a>
                 <div class="product-deteils-slider-img-small-list">
                     <a href="" class="product-details-slider-img-small"><img src="{% static 'img/controll.jpg' %}"
                                                                              alt=""></a>
@@ -31,7 +26,7 @@
                 <h2 class="fishnet-promo">{{ products.name }}</h2>
                 <h4 class="hot deal">hot deal</h4>
                 <h2 class="product-details-text-price">
-                    <span class="letter-price">$</span>&nbsp;{{ products.price }}<span class="letter-price">/sq</span>
+                    <span class="letter-price">$</span>&nbsp;{{ products.price }}<span class="letter-price"></span>
                 </h2>
                 <a class="details-button" href="#">Order Us<img src="{% static 'img/arrow-white.svg' %}" alt="arrow"
                                                                 class="arrow"></a>
