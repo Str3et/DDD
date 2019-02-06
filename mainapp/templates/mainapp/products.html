@@ -9,59 +9,18 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'mainapp/includes/prod_menu.html' %}
     <div class="hero-product padding-site">
-        <ul class="hero-menu">
-            <li class="menu-list"><a href="#" class="hero-menu-link hero-menu-link-active">ALL</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">HOME</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">OFFICE</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">FURNITURE</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">MODERN</a></li>
-            <li class="menu-list"><a href="#" class="hero-menu-link">CLASSIC</a></li>
-        </ul>
         <div class="hero-product-list">
             <ul class="hero-product-set-1">
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-11.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-21.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-31.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-41.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-51.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-61.jpg' %}" alt="" class="trending-image"></a>
-                </li>
+                {% for product in same_products %}
+                    <li class="trending-product-link">
+                        <a href="{% url 'products:details' id=product.id %}"><img src="/media/{{ product.image }}" alt="" class="trending-image"></a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="hero-product-list">
-            <ul class="hero-product-set-2">
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-11.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-21.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-31.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-41.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-51.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-61.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-            </ul>
-        </div>
+
         <div class="hero-refresh"><a href="#"><i class="fas fa-sync-alt"></i></a></div>
     </div>
     <div class="promo-product">
