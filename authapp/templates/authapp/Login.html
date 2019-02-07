@@ -1,12 +1,20 @@
 {% extends 'authapp/base.html' %}
 
 {% block content %}
-    <form action="{% url 'auth:login' %}" method="post">
-        {% csrf_token %}
-        {{ login_form.as_p }}
-
-        <p>
-            <input type="submit" value="попытка">
-        </p>
-    </form>
+    <div class="hero padding-site">
+        {% include 'mainapp/includes/header.html' %}
+        <p class="hero-text">Вход</p>
+    </div>
+    <section class="container">
+        <form action="{% url 'auth:login' %}" method="post">
+            {% csrf_token %}
+            {% if next %}
+                <input type="hidden" name="next" value="{{ next }}">
+            {% endif %}
+            {{ login_form.as_p }}
+            <p>
+                <input type="submit" value="попытка">
+            </p>
+        </form>
+    </section>
 {% endblock %}

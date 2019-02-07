@@ -15,7 +15,7 @@
             <ul class="hero-product-set-1">
                 {% for product in same_products %}
                     <li class="trending-product-link">
-                        <a href="{% url 'products:details' id=product.id %}"><img src="/media/{{ product.image }}" alt="" class="trending-image"></a>
+                        <a href="{% url 'products:details' id=product.id %}"><img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="trending-image"></a>
                     </li>
                 {% endfor %}
             </ul>

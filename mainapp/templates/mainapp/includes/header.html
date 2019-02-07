@@ -23,8 +23,15 @@
         menu-link-active {% endif %}">CONTACT</a></li>
         <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-search"></i></a></li>
         {% if user.is_authenticated %}
-            <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-shopping-bag"></i>{{ basket | length }}</a></li>
-            <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-shopping-bag"></i>{{ basket.quantity }}</a></li>
+            <li class="menu-list search">
+                <a href="{% url 'basket:index' %}" class="menu-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    {% if basket %}
+                        <span id="my-shop">{{ basket.0.total_quantity }}</span> шт.
+                        <span>{{ basket.0.total_cost }}</span> $
+                    {% endif %}
+                </a>
+            </li>
         {% endif %}
     </ul>
 </header>
