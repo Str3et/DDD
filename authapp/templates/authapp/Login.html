@@ -5,16 +5,17 @@
         {% include 'mainapp/includes/header.html' %}
         <p class="hero-text">Вход</p>
     </div>
-    <section class="container">
-        <form action="{% url 'auth:login' %}" method="post">
-            {% csrf_token %}
-            {% if next %}
-                <input type="hidden" name="next" value="{{ next }}">
-            {% endif %}
-            {{ login_form.as_p }}
-            <p>
-                <input type="submit" value="попытка">
-            </p>
-        </form>
+    <section class="container col-md-6 d-flex justify-content-center align-items-center">
+        <div class="card my-2">
+            <form class="card-body" action="{% url 'auth:login' %}" method="post">
+                {% csrf_token %}
+                {% if next %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                {% endif %}
+                {{ login_form.as_p }}
+                <button class="btn green" type="submit">Войти</button>
+            </form>
+        </div>
+
     </section>
 {% endblock %}

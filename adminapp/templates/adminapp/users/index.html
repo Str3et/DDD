@@ -1,0 +1,23 @@
+{% extends 'adminapp/base_admin.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <hr>
+    <section class="padding-site">
+        <h2>Список пользователей</h2>
+        <ul>
+            {% for el in models %}
+                {% if el.is_active == False %}
+                    <li>
+                        <a class="red" href="{% url 'admin:users_read' id=el.id %}">{{ el.username }}</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a class="text" href="{% url 'admin:users_read' id=el.id %}">{{ el.username }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <a class="btn primary-color text-success" href="{% url 'admin:users_create' %}">Новый пользователь</a>
+    </section>
+{% endblock %}

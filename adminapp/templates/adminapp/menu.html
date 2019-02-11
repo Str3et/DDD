@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<header class="header padding-site">
+    <a class="logo" href="/"><img src="{% static '/img/logo.svg' %}" alt="logo"></a>
+    <ul class="menu">
+        <li class="menu-list">
+            <a href="{% url 'home' %}" class="menu-link">На главную
+            </a>
+        </li>
+        <li class="menu-list">
+            <a href="{% url 'admin:categories' %}"
+               class="menu-link {% if request.path == '/admin/categories/index/' %} menu-link-active {% endif %}">Категории
+            </a>
+        </li>
+        <li class="menu-list">
+            <a href="{% url 'admin:users' %}"
+               class="menu-link {% if request.path == '/admin/users/index' %} menu-link-active {% endif %}">Пользователи
+            </a>
+        </li>
+    </ul>
+</header>

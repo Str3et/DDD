@@ -6,15 +6,16 @@
         {% include 'mainapp/includes/header.html' %}
         <p class="hero-text">Регистрация</p>
     </div>
-    <section class="container">
-        <form action="{% url 'auth:register' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ reg_form.as_p }}
-            <br>
-            <p>
-                <input type="submit" value="Регистрация">
-            </p>
-        </form>
+    <section class="container col-md-6 d-flex justify-content-center align-items-center">
+        <div class="card my-2">
+            <form class="card-body" action="{% url 'auth:register' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ reg_form.as_p }}
+                <br>
+                <button class="btn green" type="submit">Регистрация</button>
+            </form>
+        </div>
+
     </section>
 
 {% endblock %}

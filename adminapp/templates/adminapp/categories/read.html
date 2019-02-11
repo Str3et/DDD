@@ -1,0 +1,21 @@
+{% extends 'adminapp/base_admin.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <hr>
+    <section class="padding-site">
+        <h2>{{ model.name }}</h2>
+        <h4 class="mt-3">Товары в категории:</h4>
+        <ul>
+            {% for el in products %}
+                <li>
+                    <a href="{% url 'admin:product_read' id=el.id %}">{{ el.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a class="text-success btn red" href="{% url 'admin:category_delete' id=model.id %}">Удалить</a>
+        <a class="text-success btn primary-color" href="{% url 'admin:category_update' id=model.id %}">Редактировать</a>
+        <a class="text-primary btn green" href="{% url 'admin:product_category' category=model.id %}">Все товары</a>
+        <a class="text-primary btn success-color" href="{% url 'admin:product_create'%}">Создать новый товар</a>
+    </section>
+{% endblock %}

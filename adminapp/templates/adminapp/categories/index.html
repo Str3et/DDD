@@ -1,0 +1,19 @@
+{% extends 'adminapp/base_admin.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <hr>
+    <section class="padding-site">
+        <h2>Список категорий</h2>
+        <ul>
+            {% for el in models %}
+                <li>
+                    <a href="{% url 'admin:category_read' id=el.id %}">{{ el.name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    <a class="text-success btn red" href="{% url 'admin:category_create' %}">Создать</a>
+    </section>
+
+{% endblock %}

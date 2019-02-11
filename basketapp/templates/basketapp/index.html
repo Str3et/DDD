@@ -29,10 +29,12 @@
                         <td class="text-center"><strong class="basket-item-quantity">{{ el.quantity }}</strong><br>
 
                             <button class="btn info-color basket-item-add" data-id="{{ el.product_id }}">+</button>
+
                             <button class="btn secondary-color basket-item-del" data-id="{{ el.product_id }}">-</button>
 
+
                         </td>
-                        <td>{{ el.product.price }} $ / {{ el.product_cost }} $ <br>
+                        <td class="text-center">{{ el.product.price }} $ / <span class="my-shop-item-total-cost">{{ el.product_cost }}</span> $ <br>
                             <a class="btn red" href="{% url 'basket:remove' id=el.id %}">Удалить</a>
                         </td>
                     </tr>
