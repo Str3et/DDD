@@ -6,9 +6,8 @@
         menu-link-active {% endif %}">HOME</a></li>
         <li class="menu-list">
             <a href="{% url 'products:index' %}" class="menu-link
-{#                {% if request.path == '/products/' or request.path == '/products/1/' or request.path == '/products/2/'%}#}
-{#                menu-link-active {% endif %}#}
-                {% if request.resolver_match.namespace == 'products' %} menu-link-active {% endif %}">PRODUCTS</a>
+                {% if request.resolver_match.namespace == 'products' %} menu-link-active {% endif %}">PRODUCTS
+            </a>
         </li>
 
         {% if user.is_authenticated %}
@@ -18,13 +17,23 @@
             <li class="menu-list"><a href="{% url 'auth:login' %}" class="menu-link">LOGIN</a></li>
             <li class="menu-list"><a href="{% url 'auth:register' %}" class="menu-link">REGISTRATION</a></li>
         {% endif %}
+        {% if user.is_superuser %}
+            <li class="menu-list"><a href="{% url 'admin:categories' %}" class="menu-link">administrator</a></li>
+        {% endif %}
 
         <li class="menu-list"><a href="{% url 'contact' %}" class="menu-link {% if request.path == '/contact/' %}
         menu-link-active {% endif %}">CONTACT</a></li>
         <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-search"></i></a></li>
         {% if user.is_authenticated %}
-            <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-shopping-bag"></i>{{ basket | length }}</a></li>
-            <li class="menu-list search"><a href="#" class="menu-link"><i class="fas fa-shopping-bag"></i>{{ basket.quantity }}</a></li>
+            <li class="menu-list search">
+                <a href="{% url 'basket:index' %}" class="menu-link">
+                    <i class="fas fa-shopping-bag"></i>
+                    {% if basket %}
+                        <span id="my-shop">{{ basket.0.total_quantity }}</span> шт.
+                        <span id="my-shop-total-cost">{{ basket.0.total_cost }}</span> $
+                    {% endif %}
+                </a>
+            </li>
         {% endif %}
     </ul>
 </header>

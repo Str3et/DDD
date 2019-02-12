@@ -21,7 +21,9 @@ from django.conf.urls import include
 import mainapp.views as controller
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin-django/', admin.site.urls),
+    path('admin/', include('adminapp.urls', namespace='admin')),
+
     path('', controller.index, name='home'),
     path('contact/', controller.contact, name='contact'),
     path('interior/', controller.interior, name='interior'),

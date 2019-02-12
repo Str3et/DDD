@@ -7,4 +7,5 @@ urlpatterns = [
     path('', controller.index, name='index'),
     path('add/<int:id>', controller.add, name='add'),
     path('remove/<int:id>', controller.remove, name='remove'),
+    path('delete/<int:id>', controller.delete, name='delete'),
 ]

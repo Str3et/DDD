@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            {{ page_title }}
+        {% endblock %}
+    </title>
+    {% block css %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+              integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+              crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- Bootstrap core CSS -->
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+      <!-- Material Design Bootstrap -->
+      <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+    <div class="my-container">
+
+        {% block top %}
+            {% include 'adminapp/menu.html' %}
+        {% endblock %}
+
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </div>
+    {% block JS %}
+        <!-- SCRIPTS -->
+      <!-- JQuery -->
+      <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+      <!-- Bootstrap tooltips -->
+      <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+      <!-- Bootstrap core JavaScript -->
+      <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+      <!-- MDB core JavaScript -->
+      <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    {% endblock %}
+    {% block JS_new %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,12 +1,19 @@
 {% extends 'authapp/base.html' %}
 
 {% block content %}
-    <form action="{% url 'auth:edit' %}" method="post">
-        {% csrf_token %}
-        {{ update_form.as_p }}
+    <div class="hero padding-site">
+        {% include 'mainapp/includes/header.html' %}
+        <p class="hero-text">Редактирование профиля</p>
+    </div>
+    <section class="container">
+        <form action="{% url 'auth:edit' %}" method="post">
+            {% csrf_token %}
+            {{ update_form.as_p }}
 
-        <p>
-            <input type="submit" value="Редактировать">
-        </p>
-    </form>
+            <p>
+                <input type="submit" value="Редактировать">
+            </p>
+        </form>
+    </section>
+
 {% endblock %}
