@@ -9,9 +9,11 @@ from authapp.forms import CustomUser, RegisterForm
 @user_passes_test(lambda user: user.is_superuser)
 def index(request: HttpRequest):
     models = CustomUser.objects.all()
-    return render(request, 'adminapp/users/index.html', {
+    content = {
+        'page_title': 'Admin -> user',
         'models': models,
-    })
+    }
+    return render(request, 'adminapp/users/index.html', content)
 
 
 @user_passes_test(lambda user: user.is_superuser)
@@ -25,7 +27,7 @@ def create(request: HttpRequest):
     else:
         form = RegisterForm()
 
-    return render(request, 'adminapp/users/update.html', {
+    return render(request, 'adminapp/users/create.html', {
         'form': form,
     })
 

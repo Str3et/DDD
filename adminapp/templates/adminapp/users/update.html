@@ -3,8 +3,8 @@
 
 {% block content %}
     <hr>
-    <section class="padding-site">
-        <div class="card my-2">
+    <section class="padding-site d-flex justify-content-center">
+        <div class="card my-2 w-50">
             <form class="card-body" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}

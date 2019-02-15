@@ -216,7 +216,7 @@ a {
 }
 
 .featured-product {
-    margin-top: 110px;
+    margin-top: 80px;
     margin-bottom: 110px;
 }
 
@@ -274,6 +274,7 @@ a {
 }
 
 .icon-hover-text {
+    max-width: 300px;
     color: #6c6c6c;
     font-size: 14px;
     font-weight: 300;
@@ -286,11 +287,12 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 270px;
-    width: 270px;
-    background-image: url(/static/img/back-hover.svg);
+    height: 370px;
+    width: 370px;
+    opacity: 0.8;
+    background-color: white;
     position: relative;
-    bottom: 274px;
+    bottom: 370px;
 }
 
 .product-list:hover .icon-hover {
@@ -359,7 +361,7 @@ a {
 }
 
 .trending-product {
-    margin-top: 110px;
+    margin-top: 60px;
     margin-bottom: 110px;
 }
 
@@ -492,7 +494,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 77px;
+    margin-top: 45px;
     max-width: 1170px;
 }
 
@@ -608,16 +610,8 @@ a {
 
 .icon-hover-link {
     display: block;
-}
-
-.icon-hover-link:active .icon-hover-arrow {
-    display: none;
-}
-
-.icon-hover-arrow {
-    position: absolute;
-    top: 68px;
-    right: 128px;
+    padding: 15px;
+    border-radius: 45%;
 }
 
 .trending-image:hover {
@@ -810,7 +804,7 @@ a {
     flex-direction: column;
     flex-wrap: wrap;
     margin-bottom: 50px;
-    min-height: 700px;
+    min-height: 600px;
     max-width: 1366px;
 }
 
@@ -860,16 +854,6 @@ a {
 
 .details-button:active {
     box-shadow: none;
-}
-
-.product-details-text-txt {
-    color: #212121;
-    font-size: 16px;
-    font-weight: 300;
-    letter-spacing: 0.4px;
-    margin-top: 40px;
-    padding-left: 50px;
-    padding-right: 25px;
 }
 
 .location {
@@ -951,9 +935,9 @@ a {
 
 .button-plane {
     position: absolute;
-    left: 90%;
+    left: 75%;
     top: 50%;
-    background-color: #ffffff;
+    background-color: #fff;
     border: 0;
 }
 

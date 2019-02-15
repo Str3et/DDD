@@ -5,7 +5,6 @@ app_name = 'mainapp'
 
 urlpatterns = [
     path('', controller.products, name='index'),
-    # path('<int:id>/', controller.products, name='category'),
     path('category/<int:id>/', controller.products, name='category'),
     path('details/<int:id>/', controller.product_detail, name='details'),
 ]

@@ -20,8 +20,6 @@
                 {% endfor %}
             </ul>
         </div>
-
-        <div class="hero-refresh"><a href="#"><i class="fas fa-sync-alt"></i></a></div>
     </div>
     <div class="promo-product">
         <div class="promo-content-1 padding-promo">
@@ -30,7 +28,7 @@
                 <h2 class="fishnet-promo">Fishnet Chair</h2>
                 <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
                     available in&nbsp;matt</p>
-                <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
+                <a class="button" href="{% url 'products:index' %}">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
                                                                 class="arrow"></a>
             </div>
         </div>
@@ -40,7 +38,7 @@
                 <h2 class="fishnet-promo">Fishnet Chair</h2>
                 <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
                     available in&nbsp;matt</p>
-                <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
+                <a class="button" href="{% url 'products:index' %}">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
                                                                 class="arrow"></a>
             </div>
         </div>
