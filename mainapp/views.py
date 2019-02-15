@@ -2,15 +2,23 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest, HttpResponse
 from .models import ProductCategory, Product
 from basketapp.models import Basket
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-# Create your views here.
 
-
-def index(request: HttpRequest):
+def index(request: HttpRequest, page=1):
     products = Product.objects.all()
+    provider = Paginator(products, 3)
+
+    try:
+        products_provider = provider.page(page)
+    except PageNotAnInteger:
+        products_provider = provider.page(1)
+    except EmptyPage:
+        products_provider = provider.page(provider.num_pages)
+
     context = {
         'page_title': 'Home',
-        'products': products,
+        'provider': products_provider,
         'basket': get_current_basket(request.user),
         }
     return render(request, 'mainapp/index.html', context=context)

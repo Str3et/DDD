@@ -5,15 +5,15 @@
     <hr>
     <section class="padding-site">
         <h2>Список пользователей</h2>
-        <ul>
-            {% for el in models %}
+        <ul class="list-group">
+            {% for el in object_list %}
                 {% if el.is_active == False %}
-                    <li>
-                        <a class="red" href="{% url 'admin:users_read' id=el.id %}">{{ el.username }}</a>
+                    <li class="list-group-item w-25">
+                        <a class="red" href="{% url 'admin:users_read' pk=el.id %}">{{ el.username }}</a>
                     </li>
                 {% else %}
-                    <li>
-                        <a class="text" href="{% url 'admin:users_read' id=el.id %}">{{ el.username }}</a>
+                    <li class="list-group-item w-25">
+                        <a class="text" href="{% url 'admin:users_read' pk=el.id %}">{{ el.username }}</a>
                     </li>
                 {% endif %}
             {% endfor %}

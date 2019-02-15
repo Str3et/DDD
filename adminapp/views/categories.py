@@ -59,5 +59,10 @@ def update(request: HttpRequest, id):
 def delete(request: HttpRequest, id):
     model = get_object_or_404(ProductCategory, id=id)
     # model.delete()
-
-    return HttpResponseRedirect(reverse('admin:categories'))
+    if request.method == 'POST':
+        model.is_active = False
+        model.save()
+        return HttpResponseRedirect(reverse('admin:categories'))
+    return render(request, 'adminapp/categories/delete.html', {
+        'model': model,
+    })

@@ -1,5 +1,6 @@
 {% extends 'mainapp/Base.html' %}
 {% load staticfiles %}
+{% load money %}
 
 {% block top %}
     <div class="interior-head padding-site">
@@ -17,17 +18,16 @@
                 <h2 class="fishnet-promo">{{ item.name }}</h2>
                 <h4 class="hot deal">hot deal</h4>
                 <h2 class="product-details-text-price">
-                    <span class="letter-price">$</span>&nbsp;{{ item.price }}<span class="letter-price"></span>
+                    <span class="letter-price">$</span>&nbsp;{{ item.price | dollars }}<span class="letter-price">{{ dollars }}</span>
                 </h2>
-{#                {% if request.user.is_authenticated %}#}
                     <a class="details-button" href="{% url 'basket:add' id=item.id %}">Заказать
                         <img src="{% static 'img/arrow-white.svg' %}" alt="arrow" class="arrow">
                     </a>
-{#                {% endif %}#}
-
-                <p class="product-details-text-txt">Категория: {{ item.category }} <br><br></p>
-                <p class="product-details-text-txt">Описание: {{ item.description }} <br><br></p>
-                <p class="product-details-text-txt">Остаток на складе: {{ item.storage }} <br><br></p>
+                <ul class="list-group my-3">
+                    <li class="list-group-item">Категория: {{ item.category }}</li>
+                    <li class="list-group-item">Описание: {{ item.description }}</li>
+                    <li class="list-group-item">Остаток на складе: {{ item.storage }}</li>
+                </ul>
             </div>
         </div>
     </div>

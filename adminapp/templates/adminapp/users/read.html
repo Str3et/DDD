@@ -14,13 +14,13 @@
         <p>Активен: {{ user.is_active }}</p>
         <p>Возраст: {{ user.age }}</p>
         <p>Дата регистрации: {{ user.date_joined }}</p>
-        <button class="btn primary-color">
-            <a class="text-success"
-               href="{% url 'admin:users_update' id=user.id %}">Редактировать
-            </a>
-        </button>
+
+        <a class="text-success btn primary-color"
+           href="{% url 'admin:users_update' pk=user.id %}">Редактировать
+        </a>
+
         <a class="text-success btn red"
-           href="{% url 'admin:users_delete' id=user.id %}">Удалить
+           href="{% url 'admin:users_delete' pk=user.id %}">Удалить
         </a>
     </section>
 {% endblock %}

@@ -15,89 +15,89 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,700" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <!-- Bootstrap core CSS -->
-      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-      <!-- Material Design Bootstrap -->
-      <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
     {% endblock %}
 </head>
 <body>
-    <div class="my-container">
+<div class="my-container">
 
-        {% block top %}
+    {% block top %}
+    {% endblock %}
+
+
+    <div class="content">
+        {% block content %}
         {% endblock %}
-
-
-        <div class="content">
-            {% block content %}
-            {% endblock %}
-        </div>
-
-        {% block footer %}
-            <footer class="footer padding-site">
-                <div class="footer-center">
-                    <div class="footer-center-contact-us">
-                        <div class="footer-up-text">contact&nbsp;us</div>
-                        <div class="footer-center-contact">
-                            <p class="footer-center-contact-text">132A Bridge Road Richmond VIC&nbsp;Australia.</p>
-                            <p class="footer-center-contact-text">Talk to&nbsp;us on&nbsp;1300&nbsp;132
-                                info@interior.com</p>
-                        </div>
-                    </div>
-                    <div class="footer-center-information">
-                        <div class="footer-up-text">Useful Information</div>
-                        <div class="footer-useful-info">
-                            <ul class="useful-info">
-                                <li class="useful-info-list"><a href="#" class="useful-info-link">Sales terms</a></li>
-                                <li class="useful-info-list"><a href="#" class="useful-info-link">Customer care</a></li>
-                                <li class="useful-info-list"><a href="#" class="useful-info-link">Delivery</a></li>
-                            </ul>
-                            <ul class="useful-info">
-                                <li class="useful-info-list"><a href="#" class="useful-info-link">Architect accounts</a>
-                                </li>
-                                <li class="useful-info-list"><a href="#" class="useful-info-link">Careers</a></li>
-                                <li class="useful-info-list"><a href="#" class="useful-info-link">Exchanges &amp;&nbsp;returns</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-center-touch">
-                        <div class="footer-up-text">Let&rsquo;s Stay in&nbsp;Touch!</div>
-                        <p class="footer-center-contact-text">Suscribe to&nbsp;know about our latest news, products and
-                            special
-                            offers just for suscribers.</p>
-                        <form action="#" class="email-plane">
-                            <input type="email" placeholder="your email address" class="insertEmail">
-                            <button type="submit" class="button-plane"><i class="fas fa-paper-plane"></i></button>
-                        </form>
-                    </div>
-                </div>
-                <div class="footer-basement">
-                    <div class="basement-info">&copy;&nbsp;{% now "d.m.Y"%}. All Rights Reserved.</div>
-                    <div class="basement-social">
-                        <a class="icon-link" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="icon-link" href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a class="icon-link" href="#"><i class="fab fa-instagram"></i></a>
-                        <a class="icon-link" href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <div class="basement-info">Terms &amp;&nbsp;Conditions&nbsp;/ Privacy policy &amp;&nbsp;Cookies</div>
-                </div>
-            </footer>
-        {% endblock %}
-
     </div>
-    {% block JS %}
-        <!-- SCRIPTS -->
-      <!-- JQuery -->
-      <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-      <!-- Bootstrap tooltips -->
-      <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
-      <!-- Bootstrap core JavaScript -->
-      <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-      <!-- MDB core JavaScript -->
-      <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+    {% block footer %}
+        <footer class="footer padding-site pb-3">
+            <div class="footer-center">
+                <div class="footer-center-contact-us">
+                    <div class="footer-up-text">contact&nbsp;us</div>
+                    <div class="footer-center-contact">
+                        <p class="footer-center-contact-text">132A Bridge Road Richmond VIC&nbsp;Australia.</p>
+                        <p class="footer-center-contact-text">Talk to&nbsp;us on&nbsp;1300&nbsp;132
+                            info@interior.com</p>
+                    </div>
+                </div>
+                <div class="footer-center-information">
+                    <div class="footer-up-text">Useful Information</div>
+                    <div class="footer-useful-info">
+                        <ul class="useful-info">
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Sales terms</a></li>
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Customer care</a></li>
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Delivery</a></li>
+                        </ul>
+                        <ul class="useful-info">
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Architect accounts</a>
+                            </li>
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Careers</a></li>
+                            <li class="useful-info-list"><a href="#" class="useful-info-link">Exchanges &amp;&nbsp;returns</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-center-touch">
+                    <div class="footer-up-text">Let&rsquo;s Stay in&nbsp;Touch!</div>
+                    <p class="footer-center-contact-text">Suscribe to&nbsp;know about our latest news, products and
+                        special
+                        offers just for suscribers.</p>
+                    <form action="#" class="email-plane">
+                        <input type="email" placeholder="your email address" class="insertEmail">
+                        <button type="submit" class="button-plane"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-basement">
+                <div class="basement-info">&copy;&nbsp;{% now "d.m.Y" %}. All Rights Reserved.</div>
+                <div class="basement-social">
+                    <a class="icon-link" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="icon-link" href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a class="icon-link" href="#"><i class="fab fa-instagram"></i></a>
+                    <a class="icon-link" href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="basement-info">Terms &amp;&nbsp;Conditions&nbsp;/ Privacy policy &amp;&nbsp;Cookies</div>
+            </div>
+        </footer>
     {% endblock %}
-    {% block JS_new %}
-    {% endblock %}
+
+</div>
+{% block JS %}
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+{% endblock %}
+{% block JS_new %}
+{% endblock %}
 </body>
 
 </html>

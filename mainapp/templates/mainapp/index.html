@@ -1,5 +1,6 @@
 {% extends 'mainapp/Base.html' %}
 {% load staticfiles %}
+{% load money %}
 
 {% block top %}
     <div class="slider padding-site">
@@ -9,14 +10,14 @@
             <h2 class="fishnet">Fishnet Chair</h2>
             <p class="slider-p">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
                 available in&nbsp;matt powder-coated black </p>
-            <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
+            <a class="button" href="{% url 'products:index' %}">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
                                                             class="arrow"></a>
         </div>
-        <div class="pagination">
-            <a href="#" class="circle"></a>
-            <a href="#" class="circle circle-active"></a>
-            <a href="#" class="circle"></a>
-        </div>
+{#        <div class="pagination">#}
+{#            <a href="#" class="circle"></a>#}
+{#            <a href="#" class="circle circle-active"></a>#}
+{#            <a href="#" class="circle"></a>#}
+{#        </div>#}
     </div>
 {% endblock %}
 
@@ -25,56 +26,57 @@
     <div class="featured-product padding-site">
         <div class="tab-expolre">
             <ul class="tab-controll">
-                <li class="tab-controll-list"><a href="#"
-                                                 class="tab-controll-link tab-controll-link-active">Featured</a></li>
-                <li class="tab-controll-list"><a href="/interior" class="tab-controll-link">New</a></li>
+                <li class="tab-controll-list">
+                    <a href="{% url 'products:index' %}" class="tab-controll-link tab-controll-link-active">Products</a>
+                </li>
+                <li class="tab-controll-list">
+                    <a href="#" class="tab-controll-link">New</a>
+                </li>
             </ul>
-            <div class="explore"><a href="#" class="explore-all">explore all<img src="{% static 'img/arrow.svg' %}"
-                                                                                 alt="arrow" class="arrow"></a>
+            <div class="explore"><a href="#" class="explore-all">explore all
+                <img src="{% static 'img/arrow.svg' %}" alt="arrow" class="arrow">
+            </a>
             </div>
         </div>
-        <ul class="product-content">
-            <li class="product-list"><a href="#" class="product-link"><img src="{% static 'img/product-1.jpg' %}"
-                                                                           alt="lamp"></a>
-                <div class="icon-hover">
-                    <a href="/interior" class="icon-hover-link">
-                        <img src="{% static 'img/back-circle.svg' %}" alt="">
-                        <img src="{% static 'img/arrow-big.svg' %}" alt="" class="icon-hover-arrow"></a>
-                    <h3 class="icon-hover-name">Fishnet Chair0</h3>
-                    <p class="icon-hover-text">Seat and back with upholstery made of&nbsp;cold cure foam.</p>
+        <div class="trending-product">
+            <div class="hero-product">
+                <ul class="d-flex">
+                    {% if provider.has_previous %}
+                        <li class="mr-2 list-group">
+                            <a class="badge grey p-2"
+                               href="{% url 'page' page=provider.previous_page_number %}">Prev</a>
+                        </li>
+                    {% endif %}
+                    <li class="list-group">
+                        <p class="badge grey darken-3 p-2">page #{{ provider.number }}
+                            of {{ provider.paginator.num_pages }}</p>
+                    </li>
+                    {% if provider.has_next %}
+                        <li class="ml-2 list-group">
+                            <a class="badge grey p-2" href="{% url 'page' page=provider.next_page_number %}">Next</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <div class="hero-product-list">
+                    <ul class="hero-product-set-1">
+                        {% for product in provider %}
+                            <li class="trending-product-link product-list">
+                                <img src="{{ MEDIA_URL }}{{ product.image }}" alt="" class="trending-image">
+                                <div class="icon-hover">
+                                    <a href="{% url 'products:details' id=product.id %}"
+                                       class="badge-light icon-hover-link">
+                                        <img src="{% static 'img/arrow-big.svg' %}" alt="" class="d-block">
+                                    </a>
+                                    <h3 class="icon-hover-name">{{ product.name }}</h3>
+                                    <p class="icon-hover-text">{{ product.description }}</p>
+                                    <p class="icon-hover-text">Цена: {{ product.price | dollars }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-            </li>
-            <li class="product-list"><a href="#" class="product-link"><img src="{% static 'img/product-2.jpg' %}"
-                                                                           alt="chair"></a>
-                <div class="icon-hover">
-                    <a href="/interior" class="icon-hover-link">
-                        <img src="{% static 'img/back-circle.svg' %}" alt="">
-                        <img src="{% static 'img/arrow-big.svg' %}" alt="" class="icon-hover-arrow"></a>
-                    <h3 class="icon-hover-name">Fishnet Chair1</h3>
-                    <p class="icon-hover-text">Seat and back with upholstery made of&nbsp;cold cure foam.</p>
-                </div>
-            </li>
-            <li class="product-list"><a href="#" class="product-link"><img src="{% static 'img/product-3.jpg' %}"
-                                                                           alt="teapott"></a>
-                <div class="icon-hover">
-                    <a href="/interior" class="icon-hover-link">
-                        <img src="{% static 'img/back-circle.svg' %}" alt="">
-                        <img src="{% static 'img/arrow-big.svg' %}" alt="" class="icon-hover-arrow"></a>
-                    <h3 class="icon-hover-name">Fishnet Chair2</h3>
-                    <p class="icon-hover-text">Seat and back with upholstery made of&nbsp;cold cure foam.</p>
-                </div>
-            </li>
-            <li class="product-list"><a href="#" class="product-link"><img src="{% static 'img/product-4.jpg' %}"
-                                                                           alt="stool"></a>
-                <div class="icon-hover">
-                    <a href="/interior" class="icon-hover-link">
-                        <img src="{% static 'img/back-circle.svg' %}" alt="">
-                        <img src="{% static 'img/arrow-big.svg' %}" alt="" class="icon-hover-arrow"></a>
-                    <h3 class="icon-hover-name">Fishnet Chair3</h3>
-                    <p class="icon-hover-text">Seat and back with upholstery made of&nbsp;cold cure foam.</p>
-                </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
     <div class="promo-product">
         <div class="promo-content-1 padding-promo">
@@ -83,7 +85,7 @@
                 <h2 class="fishnet-promo">Fishnet Chair</h2>
                 <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
                     available in&nbsp;matt</p>
-                <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
+                <a class="button" href="{% url 'products:index' %}">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
                                                                 class="arrow"></a>
             </div>
         </div>
@@ -93,39 +95,9 @@
                 <h2 class="fishnet-promo">Fishnet Chair</h2>
                 <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
                     available in&nbsp;matt</p>
-                <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
+                <a class="button" href="{% url 'products:index' %}">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
                                                                 class="arrow"></a>
             </div>
-        </div>
-    </div>
-    <div class="trending-product padding-site">
-        <div class="trending-text">
-            <div class="trending-title">Trending Products</div>
-            <div class="explore"><a href="#" class="explore-all">explore all<img src="{% static 'img/arrow.svg' %}"
-                                                                                 alt="arrow" class="arrow"></a>
-            </div>
-        </div>
-        <div class="trending-product-img">
-            <ul class="trending-product-list">
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-11.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-21.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-31.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-41.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-51.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-                <li class="trending-product-link"><a href="/interior">
-                    <img src="{% static 'img/product-61.jpg' %}" alt="" class="trending-image"></a>
-                </li>
-            </ul>
         </div>
     </div>
     <div class="hot-deals padding-site">
@@ -134,7 +106,7 @@
             <h2 class="fishnet">Fishnet Chair</h2>
             <p class="slider-p">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
                 available in&nbsp;matt powder-coated black </p>
-            <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
+            <a class="button" href="{% url 'products:index' %}">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
                                                             class="arrow"></a>
         </div>
         <div class="pagination">
@@ -142,28 +114,6 @@
             <a href="#" class="circle circle-active"></a>
             <a href="#" class="circle"></a>
         </div>
-    </div>
-    <div class="exclusive-product padding-site">
-        <div class="exclusive-product-variant">
-            <div class="promo-product-text">
-                <h4 class="exclusive">exclusive</h4>
-                <h2 class="fishnet-promo">Fishnet Chair</h2>
-                <p class="promo-text">Seat and back with upholstery made of&nbsp;cold cure foam. Steel frame,
-                    available in&nbsp;matt</p>
-                <a class="button" href="/interior">Order Us<img src="{% static 'img/arrow.svg' %}" alt="arrow"
-                                                                lass="arrow"></a>
-            </div>
-        </div>
-        <ul class="exclusive-product-list">
-            <li class="exclusive-product-link"><a href="#"><img src="{% static 'img/product-2-sm.jpg' %}" alt=""
-                                                                class="trending-image"></a></li>
-            <li class="exclusive-product-link"><a href="#"><img src="{% static 'img/product-3-sm.jpg' %}" alt=""
-                                                                class="trending-image"></a></li>
-            <li class="exclusive-product-link"><a href="#"><img src="{% static 'img/product-4-sm.jpg' %}" alt=""
-                                                                class="trending-image"></a></li>
-            <li class="exclusive-product-link"><a href="#"><img src="{% static 'img/product-5-sm.jpg' %}" alt=""
-                                                                class="trending-image"></a></li>
-        </ul>
     </div>
     <div class="mobile-app padding-site">
         <div class="mobile-info">

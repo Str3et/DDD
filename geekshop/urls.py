@@ -23,10 +23,9 @@ import mainapp.views as controller
 urlpatterns = [
     # path('admin-django/', admin.site.urls),
     path('admin/', include('adminapp.urls', namespace='admin')),
-
     path('', controller.index, name='home'),
+    path('page/<int:page>/', controller.index, name='page'),
     path('contact/', controller.contact, name='contact'),
-    path('interior/', controller.interior, name='interior'),
     path('products/', include('mainapp.urls', namespace='products')),  #  {% url 'products:index'%}
     path('auth/', include('authapp.urls', namespace='auth')),
     path('basket/', include('basketapp.urls', namespace='basket')),
