@@ -1,0 +1,22 @@
+{% extends 'authapp/base.html' %}
+
+{% block content %}
+    <div class="hero padding-site">
+        {% include 'mainapp/includes/header.html' %}
+        <p class="hero-text">Вход</p>
+    </div>
+    <section class="container col-md-6 d-flex justify-content-center align-items-center">
+        <div class="card my-2">
+            <div class="card-body">
+                {% if user %}
+                    <h3>Поздравляем!</h3>
+                    <br>
+                    <h4>Пользователь {{ user.username }} подтвержден.</h4>
+                {% else %}
+                    <h3>Верификация не пройдена.</h3>
+                {% endif %}
+                <a href="{% url 'home' %}" class="btn green mt-3">на главную</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

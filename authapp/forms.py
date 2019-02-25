@@ -1,4 +1,5 @@
-
+import hashlib
+import random
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from authapp.models import CustomUser
@@ -28,6 +29,24 @@ class RegisterForm(UserCreationForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
             field.help_text = ''
+
+#    проверка на 18 лет
+#     def clean_age(self):
+#         data = self.cleaned_data['age']
+#         if data < 18:
+#             raise forms.ValidationError('Недопустимый возраст. Только 18+')
+#         return data
+
+#    переопределяем метод save для формы регистрации пользователя
+    def save(self):
+        user = super(RegisterForm, self).save()
+
+        user.is_active = False
+        salt = hashlib.sha1(str(random.random()).encode('utf8')).hexdigest()[:6]
+        user.activation_key = hashlib.sha1((user.email + salt).encode('utf8')).hexdigest()
+        user.save()
+
+        return user
 
 
 class UpdateForm(UserChangeForm):
