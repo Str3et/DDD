@@ -5,7 +5,7 @@ from datetime import timedelta
 
 
 class CustomUser(AbstractUser):
-    age = models.PositiveIntegerField(verbose_name='Возраст', default=0)
+    age = models.PositiveIntegerField(verbose_name='Возраст', default=18)
     avatar = models.ImageField(upload_to='avatar_img', verbose_name='avatar', blank=True)
 
     activation_key = models.CharField(max_length=128, blank=True)

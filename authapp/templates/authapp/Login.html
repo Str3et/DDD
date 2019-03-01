@@ -15,7 +15,11 @@
                 {{ login_form.as_p }}
                 <button class="btn green" type="submit">Войти</button>
             </form>
-        </div>
+        <button class="btn btn-round form-control">
+            <a href="{% url 'social:begin' 'vk-oauth2' %}?next={% url 'products:index' %}">VK</a>
+        </button>
 
+
+        </div>
     </section>
 {% endblock %}
