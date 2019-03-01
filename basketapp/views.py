@@ -45,10 +45,8 @@ def remove(request: HttpRequest, id: int):
 
 @login_required
 def index(request: HttpRequest):
-    basket = Basket.objects.filter(user=request.user)
     context = {
         'page_title': 'Корзина',
-        'basket': basket,
         }
     return render(request, 'basketapp/index.html', context=context)
 
