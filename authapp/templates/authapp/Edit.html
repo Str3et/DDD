@@ -5,14 +5,17 @@
         {% include 'mainapp/includes/header.html' %}
         <p class="hero-text">Редактирование профиля</p>
     </div>
-    <section class="container">
-        <form action="{% url 'auth:edit' %}" method="post">
-            {% csrf_token %}
-            {{ update_form.as_p }}
+    <section class="container col-md-6">
+        <form class="card" action="{% url 'auth:edit' %}" method="post">
+            <div class="card-body">
+                {% csrf_token %}
+                {{ update_form.as_p }}
+                {{ profile_form.as_p }}
+                <p>
+                    <input type="submit" value="Редактировать">
+                </p>
+            </div>
 
-            <p>
-                <input type="submit" value="Редактировать">
-            </p>
         </form>
     </section>
 

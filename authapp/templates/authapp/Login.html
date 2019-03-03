@@ -14,8 +14,8 @@
                 {% endif %}
                 {{ login_form.as_p }}
                 <button class="btn green" type="submit">Войти</button>
+            <a class="btn btn-primary" href="{% url 'social:begin' 'vk-oauth2' %}?next={% url 'products:index' %}">VK</a>
             </form>
         </div>
-
     </section>
 {% endblock %}

@@ -1,10 +1,12 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest
 from django.urls import reverse
+from django.db import  transaction
 from .forms import LoginForm, RegisterForm, UpdateForm
 from django.core.mail import send_mail
 from django.conf import settings
+from authapp.forms import CustomUserProfileUpdateForm
 from authapp.models import CustomUser
 
 
@@ -85,7 +87,7 @@ def verify(request, email, activation_key):
             print(f'user {user} is activated')
             user.is_active = True
             user.save()
-            auth.login(request, user)
+            auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
 
             return render(request, 'authapp/Verification.html')
         else:
@@ -98,20 +100,24 @@ def verify(request, email, activation_key):
     return HttpResponseRedirect(reverse('main'))
 
 
+@transaction.atomic
 def edit(request: HttpRequest):
     title = 'Профиль'
 
     if request.method == 'POST':
         update_form = UpdateForm(request.POST, request.FILES, instance=request.user)
-        if update_form.is_valid():
+        profile_form = CustomUserProfileUpdateForm(request.POST, instance=request.user.customuserprofile)
+        if update_form.is_valid() and profile_form.is_valid():
             update_form.save()
             return HttpResponseRedirect(reverse('auth:edit'))
     else:
         update_form = UpdateForm(instance=request.user)
+        profile_form = CustomUserProfileUpdateForm(instance=request.user.customuserprofile)
 
     content = {
         'page_title': title,
         'update_form': update_form,
+        'profile_form': profile_form,
     }
 
     return render(request, 'authapp/edit.html', content)

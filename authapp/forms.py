@@ -2,7 +2,7 @@ import hashlib
 import random
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
-from authapp.models import CustomUser
+from authapp.models import CustomUser, CustomUserProfile
 
 
 class LoginForm(AuthenticationForm):
@@ -63,3 +63,14 @@ class UpdateForm(UserChangeForm):
 
             if field_name == 'password':
                 field.widget = forms.HiddenInput()
+
+
+class CustomUserProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = CustomUserProfile
+        fields = ('tagline', 'aboutMe', 'gender')
+
+    def __init__(self, *args, **kwargs):
+        super(CustomUserProfileUpdateForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
