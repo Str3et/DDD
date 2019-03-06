@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from mainapp.models import Product
 from basketapp.models import Basket
 
+
 @login_required
 def add(request: HttpRequest, id: int):
     product = get_object_or_404(Product, pk=id)
@@ -38,10 +39,12 @@ def add(request: HttpRequest, id: int):
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
+@login_required
 def remove(request: HttpRequest, id: int):
     item = get_object_or_404(Basket, id=id)
     item.delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
 
 @login_required
 def index(request: HttpRequest):
@@ -49,6 +52,7 @@ def index(request: HttpRequest):
         'page_title': 'Корзина',
         }
     return render(request, 'basketapp/index.html', context=context)
+
 
 @login_required
 def delete(request: HttpRequest, id: int):

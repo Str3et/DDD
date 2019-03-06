@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 from mainapp.models import Product
 
-# Create your models here.
+
 class Basket(models.Model):
     # аннотация свойств
     _cost: float

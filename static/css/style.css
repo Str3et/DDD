@@ -658,9 +658,9 @@ a {
 }
 
 /*.hero-menu {*/
-    /*display: flex;*/
-    /*margin-top: 57px;*/
-    /*margin-bottom: 45px;*/
+/*display: flex;*/
+/*margin-top: 57px;*/
+/*margin-bottom: 45px;*/
 /*}*/
 
 .hero-menu-link {
@@ -1021,4 +1021,51 @@ a {
         transform: rotateX(0);
         opacity: 1;
     }
+}
+
+/* Изменение скрола */
+::-webkit-scrollbar-button {
+    background-repeat: no-repeat;
+    width: 5px;
+    height: 0px
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ecedee
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background-color: #6dc0c8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #56999f;
+}
+
+::-webkit-resizer {
+    background-repeat: no-repeat;
+    width: 4px;
+    height: 0px
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Изменение скрола */
+
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+    bottom: .5em;
 }

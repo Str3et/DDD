@@ -1,0 +1,11 @@
+{% if object.status == 'FM' %}
+    <div>
+        <a class="btn btn-cyan" href="{% url 'ordersapp:order_forming_complete' object.pk %}">is_active</a>
+    </div>
+    <div>
+        <a class="btn btn-danger" href="{% url 'ordersapp:order_delete' object.pk %}">удалить</a>
+    </div>
+{% endif %}
+<div>
+    <a class="btn btn-dark-green" href="{% url 'ordersapp:orders_list' %}">к списку заказов</a>
+</div>

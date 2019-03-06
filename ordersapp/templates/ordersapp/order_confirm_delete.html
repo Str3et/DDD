@@ -1,0 +1,25 @@
+{% extends 'ordersapp/base.html' %}
+{% load staticfiles %}
+
+{% block top %}
+    <div class="hero padding-site">
+        {% include 'mainapp/includes/header.html' %}
+        <p class="hero-text">Подтверждение удаления</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <article class="card col-md-5 m-auto">
+        <div class="card-body">
+            <div class="h1">Уверены, что хотите удалить?</div>
+            <form action="{% url 'ordersapp:order_delete' object.pk %}"
+                  method="post">
+                {% csrf_token %}
+                <input class="btn btn-danger" type="submit" value="удалить">
+            </form>
+            <button class="btn btn-success">
+                <a href="{% url 'ordersapp:orders_list' %}">отмена</a>
+            </button>
+        </div>
+    </article>
+{% endblock %}

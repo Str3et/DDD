@@ -11,8 +11,23 @@
         </li>
 
         {% if user.is_authenticated %}
-            <li class="menu-list"><a href="{% url 'auth:logout' %}" class="menu-link"><i class="fas fa-sign-out-alt"></i></a></li>
-            <li class="menu-list"><a href="{% url 'auth:edit' %}" class="menu-link">EDIT ({{ user.username }})</a></li>
+            <li class="menu-list"><a href="{% url 'auth:logout' %}" class="menu-link"><i
+                    class="fas fa-sign-out-alt"></i></a></li>
+            <li class="menu-list">
+                <div class="dropdown">
+                    <a href="" class="menu-link dropdown-toggle"
+                        data-toggle="dropdown">USER ({{ user.username }})
+                    </a>
+                    <ul class="dropdown-menu text-center">
+                        <li>
+                            <a class="menu-link" href="{% url 'auth:edit' %}">EDIT</a>
+                        </li>
+                        <li>
+                            <a class="menu-link" href="{% url 'order:orders_list' %}">ORDER`S</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         {% else %}
             <li class="menu-list"><a href="{% url 'auth:login' %}" class="menu-link">LOGIN</a></li>
             <li class="menu-list"><a href="{% url 'auth:register' %}" class="menu-link">REGISTRATION</a></li>

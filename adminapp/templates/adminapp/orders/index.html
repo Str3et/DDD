@@ -1,0 +1,37 @@
+{% extends 'adminapp/base_admin.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <hr>
+    <section class="padding-site">
+        <h2>Список Заказов</h2>
+    <div class="card blue lighten-5 text-center">
+        <table id="tablePreview" class="table p-3">
+            <thead>
+            <tr>
+                <th>ID заказа</th>
+                <th>ID пользователя</th>
+                <th>Создан</th>
+                <th>Статус заказа</th>
+                <th>is_active</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for el in object_list %}
+                <tr>
+                    <th scope="row">{{ el.id }}</th>
+                    <td>{{ el.user_id }}</td>
+                    <td>{{ el.created }}</td>
+                    <td>{{ el.status }}</td>
+                    <td>{{ el.is_active }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a class="text-success btn primary-color"
+           href="#">Редактировать
+        </a>
+
+    </section>
+{% endblock %}
