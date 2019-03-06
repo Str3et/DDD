@@ -17,6 +17,9 @@ class OrderListView(ListView):
         parent_context['page_title'] = 'Admin -> Main orders'
         return parent_context
 
+    def get_queryset(self):
+        return Order.objects.all()
+
     @method_decorator(user_passes_test(lambda user: user.is_superuser))
     def dispatch(self, request, *args, **kwargs):
         return super(OrderListView, self).dispatch(request, *args, **kwargs)

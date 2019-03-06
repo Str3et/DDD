@@ -5,11 +5,11 @@
     <hr>
     <section class="padding-site">
         <div class="card my-2">
-{#            <form class="card-body" method="post" enctype="multipart/form-data">#}
-{#                {% csrf_token %}#}
-{#                {{ form.as_p }}#}
-{#                <button class="btn green" type="submit">Сохранить изменения</button>#}
-{#            </form>#}
+            <form class="card-body" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn green" type="submit">Сохранить изменения</button>
+            </form>
         </div>
     </section>
 {% endblock %}
