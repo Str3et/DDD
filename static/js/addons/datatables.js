@@ -6612,7 +6612,7 @@
 	 * Register a callback function. Easily allows a callback function to be added to
 	 * an array store of callback functions that can then all be called together.
 	 *  @param {object} oSettings dataTables settings object
-	 *  @param {string} sStore Name of the array storage for the callbacks in oSettings
+	 *  @param {string} sStore Name of the array quantity for the callbacks in oSettings
 	 *  @param {function} fn Function to be called back
 	 *  @param {string} sName Identifying name for the callback (i.e. a label)
 	 *  @memberof DataTable#oApi
@@ -6635,7 +6635,7 @@
 	 * fire off triggers in time sensitive applications (for example cell creation)
 	 * as its slow.
 	 *  @param {object} settings dataTables settings object
-	 *  @param {string} callbackArr Name of the array storage for the callbacks in
+	 *  @param {string} callbackArr Name of the array quantity for the callbacks in
 	 *      oSettings
 	 *  @param {string} eventName Name of the jQuery custom event to trigger. If
 	 *      null no trigger is fired
@@ -10084,7 +10084,7 @@
 		 *
 		 * As a function, making the Ajax call is left up to yourself allowing
 		 * complete control of the Ajax request. Indeed, if desired, a method other
-		 * than Ajax could be used to obtain the required data, such as Web storage
+		 * than Ajax could be used to obtain the required data, such as Web quantity
 		 * or an AIR database.
 		 *
 		 * The function is given four parameters and no return is required. The
@@ -10171,12 +10171,12 @@
 		 *   } );
 		 *
 		 * @example
-		 *   // Get the data from localStorage (could interface with a form for
+		 *   // Get the data from localquantity (could interface with a form for
 		 *   // adding, editing and removing rows).
 		 *   $('#example').dataTable( {
 		 *     "ajax": function (data, callback, settings) {
 		 *       callback(
-		 *         JSON.parse( localStorage.getItem('dataTablesData') )
+		 *         JSON.parse( localquantity.getItem('dataTablesData') )
 		 *       );
 		 *     }
 		 *   } );
@@ -10633,14 +10633,14 @@
 	
 	
 		/**
-		 * Enable or disable state saving. When enabled HTML5 `localStorage` will be
+		 * Enable or disable state saving. When enabled HTML5 `localquantity` will be
 		 * used to save table display information such as pagination information,
 		 * display length, filtering and sorting. As such when the end user reloads
 		 * the page the display display will match what thy had previously set up.
 		 *
-		 * Due to the use of `localStorage` the default state saving is not supported
+		 * Due to the use of `localquantity` the default state saving is not supported
 		 * in IE6 or 7. If state saving is required in those browsers, use
-		 * `stateSaveCallback` to provide a storage solution such as cookies.
+		 * `stateSaveCallback` to provide a quantity solution such as cookies.
 		 *  @type boolean
 		 *  @default false
 		 *
@@ -10963,7 +10963,7 @@
 	
 		/**
 		 * Load the table state. With this function you can define from where, and how, the
-		 * state of a table is loaded. By default DataTables will load from `localStorage`
+		 * state of a table is loaded. By default DataTables will load from `localquantity`
 		 * but you might wish to use a server-side database or cookies.
 		 *  @type function
 		 *  @member
@@ -10994,7 +10994,7 @@
 		"fnStateLoadCallback": function ( settings ) {
 			try {
 				return JSON.parse(
-					(settings.iStateDuration === -1 ? sessionStorage : localStorage).getItem(
+					(settings.iStateDuration === -1 ? sessionquantity : localquantity).getItem(
 						'DataTables_'+settings.sInstance+'_'+location.pathname
 					)
 				);
@@ -11066,7 +11066,7 @@
 	
 		/**
 		 * Save the table state. This function allows you to define where and how the state
-		 * information for the table is stored By default DataTables will use `localStorage`
+		 * information for the table is stored By default DataTables will use `localquantity`
 		 * but you might wish to use a server-side database or cookies.
 		 *  @type function
 		 *  @member
@@ -11095,7 +11095,7 @@
 		 */
 		"fnStateSaveCallback": function ( settings, data ) {
 			try {
-				(settings.iStateDuration === -1 ? sessionStorage : localStorage).setItem(
+				(settings.iStateDuration === -1 ? sessionquantity : localquantity).setItem(
 					'DataTables_'+settings.sInstance+'_'+location.pathname,
 					JSON.stringify( data )
 				);

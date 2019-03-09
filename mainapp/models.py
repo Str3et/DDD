@@ -13,7 +13,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='prod_img', verbose_name='Картинка товара', blank=True)
     description = models.TextField(verbose_name='Описание')
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
-    storage = models.IntegerField(verbose_name='Склад', default=0)
+    quantity = models.IntegerField(verbose_name='Склад', default=0)
 
     category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, related_name='products')
 

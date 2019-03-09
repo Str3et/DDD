@@ -36,7 +36,7 @@ class Order(models.Model):
 
     def get_total_quantity(self):
         items = self.orderitems.select_related()
-        return sum(list(map(lambda x: x.storage, items)))
+        return sum(list(map(lambda x: x.quantity, items)))
 
     def get_product_type_quantity(self):
         items = self.orderitems.select_related()
@@ -44,11 +44,11 @@ class Order(models.Model):
 
     def get_total_cost(self):
         items = self.orderitems.select_related()
-        return sum(list(map(lambda x: x.storage * x.product.price, items)))
+        return sum(list(map(lambda x: x.quantity * x.product.price, items)))
 
     def delete(self):
         for item in self.orderitems.select_related():
-            item.product.storage += item.storage
+            item.product.quantity += item.quantity
             item.product.save()
 
         self.is_active = False
@@ -58,7 +58,24 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='orderitems', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, verbose_name='продукты', on_delete=models.CASCADE)
-    storage = models.PositiveIntegerField(verbose_name='количество', default=0)
+    quantity = models.PositiveIntegerField(verbose_name='количество', default=0)
 
     def get_product_cost(self):
-        return self.product.price * self.storage
+        return self.product.price * self.quantity
+
+    @staticmethod
+    def get_item(pk):
+        return OrderItem.objects.filter(pk=pk).first()
+
+    # def delete(self):
+    #     self.product.quantity += self.quantity
+    #     self.product.save()
+    #     super(self.__class__, self).delete()
+    #
+    # def save(self, *args, **kwargs):
+    #     if self.pk:
+    #         self.product.quantity -= self.quantity - self.__class__.get_item(self.pk).quantity
+    #     else:
+    #         self.product.quantity -= self.quantity
+    #     self.product.save()
+    #     super(self.__class__, self).save(*args, **kwargs)

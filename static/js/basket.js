@@ -62,7 +62,7 @@ $(document).ready(function () { // анонимная функция загру�
                 total_item_cost.text(data.quantity * data.price);
                 if (data.quantity === 0) {
                     quantity_null.hide()
-                };
+                }
             },
         })
     })
