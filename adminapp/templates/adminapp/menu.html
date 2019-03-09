@@ -13,7 +13,12 @@
         </li>
         <li class="menu-list">
             <a href="{% url 'admin:users' %}"
-               class="menu-link {% if request.path == '/admin/users/index' %} menu-link-active {% endif %}">Пользователи
+               class="menu-link {% if request.path == '/admin/users/index/' %} menu-link-active {% endif %}">Пользователи
+            </a>
+        </li>
+        <li class="menu-list">
+            <a href="{% url 'admin:orders' %}"
+               class="menu-link {% if request.path == '/admin/orders/index/' %} menu-link-active {% endif %}">Заказы
             </a>
         </li>
     </ul>

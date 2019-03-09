@@ -41,6 +41,7 @@
                 {% endfor %}
                 </tbody>
             </table>
+                <a class="btn green lighten-2" href="{% url 'order:order_create' %}">create ORDER</a>
         {% else %}
             <h3><strong>Ваша корзина пуста.</strong></h3>
         {% endif %}
