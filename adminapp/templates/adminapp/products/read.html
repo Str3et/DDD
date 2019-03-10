@@ -11,7 +11,7 @@
         <h4 class="mt-3">Информация о товаре:</h4>
         <p>Описание товара: {{ product.description }}</p>
         <p>Цены: {{ product.price }}</p>
-        <p>Остаток на складе: {{ product.storage }}</p>
+        <p>Остаток на складе: {{ product.quantity }}</p>
         <p>Активность: {{ product.is_active }}</p>
         <a class="text-success btn primary-color" href="{% url 'admin:product_update' id=product.id %}">Редактировать</a>
         <a class="text-success btn red" href="{% url 'admin:product_delete' id=product.id %}">Удалить</a>

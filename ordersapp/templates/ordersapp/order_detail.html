@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block content %}
-    {#    {% include 'ordersapp/includes/inc_order_summary.html' %}#}
+        {% include 'ordersapp/includes/inc_order_summary.html' %}
     <article class="card col-md-8 m-auto">
         <div class="card-body">
 
@@ -31,7 +31,7 @@
                         <td>{{ item.product.category.name }}</td>
                         <td>{{ item.product.name }}</td>
                         <td>{{ item.product.price }}&nbspруб</td>
-                        <td>x {{ item.storage }} шт.</td>
+                        <td>x {{ item.quantity }} шт.</td>
                         <td>{{ item.get_product_cost }}&nbspруб</td>
                     </tr>
                 {% endfor %}
